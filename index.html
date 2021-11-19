@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var array=["1.jpeg",'2.jpeg','3.jpeg',"4.jpeg","5.jpeg","6.jpeg","7.jpeg"]
+       console.log(e)
+       var myimg=document.createElement("div");
+       myimg.style.width="150px";
+       myimg.style.height="250px";
+       myimg.style.position="relative";
+       myimg.style.backgroundColor="red";
+       myimg.style.left="700px";
+       document.body.appendChild(myimg)
+       var image=document.createElement("img");
+       image.setAttribute("src",array[0])
+       myimg.appendChild(image)
+        var d=0;
+        var e=0;
+        var win=0;
+        var words=["APPLE",'ORANGE',"WATERMELON","GRAPES"]
+        var letters=(words[Math.floor(Math.random()*(words.length))]).split("")
+        console.log(letters)
+        var test = document.createElement("div");
+        test.style.width='100%';
+        test.style.position="absolute";
+        test.style.left="100px";
+        test.style.top="200px";
+        test.style.height="100px";
+        test.style.display="flex";
+        test.style.flexDirection="row";
+        test.style.flexWrap="wrap";
+        // test.style.backgroundColor="yellow";
+        for(i=0;i<letters.length;i++){
+            var fruit = document.createElement("div");
+            fruit.style.width="50px";
+            fruit.setAttribute("id",i)
+            fruit.style.height="50px";
+            fruit.style.marginRight="2px";
+           
+            fruit.style.backgroundColor="pink";
+            test.appendChild(fruit)
+
+        } 
+       
+        document.body.appendChild(test)
+       
+
+
+        var alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var alphabets=(alpha.split(""))
+       
+
+        var board = document.createElement("div")
+        board.style.width="340px";
+        board.style.position="absolute";
+        board.style.top="100px"
+        // board.style.backgroundColor="pink";
+        board.style.display="flex";
+        board.style.marginTop="200px";
+        board.style.marginLeft="100px";
+        board.style.flexDirection="row";
+        board.style.flexWrap="wrap";
+        document.body.appendChild(board)
+        for( i = 0; i < (alphabets.length); i++ ){  
+        var buttons = document.createElement("button");
+        // buttons.setAttribute("id",i)
+        buttons.innerText=alphabets[i];
+        buttons.addEventListener("click", function(){
+         
+            this.disabled="true"
+            for(i=0;i<letters.length;i++){
+                if(this.innerText==letters[i]){
+                    document.getElementById(i).innerText=letters[i];
+                    win=win+1;
+                    // console.log(win)
+                    if(win==letters.length){
+                        setTimeout(function(){alert("you won the game")
+                    location.reload();
+                    },1000)
+                        
+                    }
+                } else{
+                    d=d+1;
+                   
+                } 
+                
+            }  console.log(d)
+             if(d==(letters.length)){
+                 e=e+1;
+                 image.setAttribute("src",array[e])
+                //  console.log(e)
+                 if(e==6){
+                     setTimeout(function(){ alert("game over")
+                    location.reload();
+                    },500)
+                     
+                 }
+                
+             } d=0;
+           
+        })
+       
+        board.appendChild(buttons)
+        }        
+        </script>
+</body>
+</html>
